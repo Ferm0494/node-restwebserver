@@ -1,38 +1,37 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+
+
+//Port and BD global on config
 require('./config/config')
 
 
-// parse application/x-www-form-urlencoded
+// parse application/x-www-form-urlencoded BodyParser
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// parse application/json
+// parse application/json BodyParser
 app.use(bodyParser.json())
 
-app.get('/usuario', (req, res) => {
-    res.json('get Usuario')
-})
+//MiddleWare for Routes
 
-app.post('/usuario', (req, res) => {
-    //res.json('post usuario');
-    let body = req.body;
-    res.json({
-        persona: body
-    })
-
-})
-
-app.delete('/usuario', (req, res) => {
-    res.json('delete usuario')
-})
-
-app.put('/usuario/:id', (req, res) => {
-    let id = req.params.id
-    res.json('put usuario' + id)
-
-})
+app.use(require('./routes/routes'))
 
 app.listen(process.env.PORT, () => {
     console.log('Despeglando server en...' + process.env.PORT);
+})
+
+//useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true...standard...
+//
+
+
+mongoose.connect(process.env.urlDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err, res) => {
+    if (err) {
+        throw error;
+    } else {
+
+        console.log('Base de Datos Online');
+    }
+
 })
