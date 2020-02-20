@@ -17,10 +17,10 @@ if (process.env.NODE_ENV === 'dev') {
 
 } else {
 
-    urlDB = 'mongodb+srv://Ferm:cfjd0494@cluster0-qwl6r.mongodb.net/cafe'
+    //Donde process.env.MongoURI es variable de entorno de Heroku,
+    //URL mongodb+srv..... {user}:{pass}.../{nameBD}...AtlasMongo
+    urlDB = process.env.MongoURI
 
 }
 
 process.env.urlDB = urlDB;
-
-// process.env.urlDB = 'mongodb+srv://Ferm:cfjd0494@cluster0-qwl6r.mongodb.net/cafe'
