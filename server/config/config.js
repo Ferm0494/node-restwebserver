@@ -1,3 +1,5 @@
+import { url } from "inspector";
+
 process.env.PORT = process.env.PORT || 3000
 
 
@@ -17,7 +19,9 @@ if (process.env.NODE_ENV === 'dev') {
 
 } else {
 
-    urlDB = 'mongodb+srv://Ferm:cfjd0494@cluster0-qwl6r.mongodb.net/cafe'
+
+    urlDB = process.env.MongoURI;
+    // urlDB = 'mongodb+srv://Ferm:cfjd0494@cluster0-qwl6r.mongodb.net/cafe'
 
 }
 
