@@ -17,7 +17,9 @@ if (process.env.NODE_ENV === 'dev') {
 
 } else {
 
-    urlDB = 'mongodb+srv://Ferm:cfjd0494@cluster0-qwl6r.mongodb.net/cafe'
+
+    //process.env.MongoURI = heroku config:set "srv.../{user}:{pass}../{bd}"
+    urlDB = process.env.MongoURI
 
 }
 
