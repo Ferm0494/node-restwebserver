@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json BodyParser
 app.use(bodyParser.json())
 
-//MiddleWare for Routes
+//MiddleWare for Routes of apis
 
 app.use(require('./routes/routes'))
 
