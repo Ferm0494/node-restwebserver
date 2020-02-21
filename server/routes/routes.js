@@ -2,11 +2,14 @@ const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
 const Usuario = require('../models/usuario')
+const { verifyToken, verifyRole } = require('../middlewares/middleware')
 const _ = require('underscore')
 
 
 
-app.get('/usuario', (req, res) => {
+//VerifiyToken es una funcion Middleware en middleware.js que verifica nuestro token
+
+app.get('/usuario', verifyToken, (req, res) => {
 
     let from = req.query.from || 0
     let limit = req.query.limit || 2
@@ -57,9 +60,10 @@ app.get('/usuario', (req, res) => {
 
 
 
-app.post('/usuario', (req, res) => {
+app.post('/usuario', [verifyToken, verifyRole], (req, res) => {
     //res.json('post usuario');
     let body = req.body;
+
     let usuario = new Usuario({
         nombre: body.nombre,
         email: body.email,
@@ -85,7 +89,7 @@ app.post('/usuario', (req, res) => {
 
 })
 
-app.delete('/usuario/:id', (req, res) => {
+app.delete('/usuario/:id', [verifyToken, verifyRole], (req, res) => {
     let id = req.params.id
 
     //======================
@@ -131,7 +135,7 @@ app.delete('/usuario/:id', (req, res) => {
 
 })
 
-app.put('/usuario/:id', (req, res) => {
+app.put('/usuario/:id', [verifyToken, verifyRole], (req, res) => {
     let id = req.params.id
 
     //UnderScore Lib que nos permitira modificar desde body unicamente esos parametros de Model

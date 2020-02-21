@@ -1,23 +1,19 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+
+//Importing Routes from Index.js 
+app.use(require('./routes/index'))
 
 
 //Port and BD global on config
 require('./config/config')
 
 
-// parse application/x-www-form-urlencoded BodyParser
-app.use(bodyParser.urlencoded({ extended: false }))
 
-// parse application/json BodyParser
-app.use(bodyParser.json())
 
-//MiddleWare for Routes of apis
-
-app.use(require('./routes/routes'))
-
+//MiddleWare for Routes of apis...Index En JS todas las rutas API
+// app.use(require('./routes/routes'))
 app.listen(process.env.PORT, () => {
     console.log('Despeglando server en...' + process.env.PORT);
 })

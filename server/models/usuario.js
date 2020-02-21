@@ -57,10 +57,14 @@ let usuarioSchema = new Schema({
 
 })
 
+//metodo que nos permitira NO Mostrar password, pero si se guaradar en bd req.body.password
+// field en JSON..
 usuarioSchema.methods.toJSON = function() {
     let user = this
     let userObject = user.toObject()
     delete userObject.password;
+
+
 
     return userObject;
 
