@@ -12,9 +12,15 @@ process.env.LIFE = 60 * 60 * 24 * 30
 
 
 
-
-
 //====================
+
+
+//=================Google================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '1014301085314-5qh5r272k834388h130ngibg2nlhtd47.apps.googleusercontent.com'
+
+//=======================================
+
+
 
 //========Base de datos===================
 

@@ -12,6 +12,8 @@ require('./config/config')
 
 
 
+
+
 //MiddleWare for Routes of apis...Index En JS todas las rutas API
 // app.use(require('./routes/routes'))
 app.listen(process.env.PORT, () => {
