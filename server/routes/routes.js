@@ -73,6 +73,8 @@ app.post('/usuario', [verifyToken, verifyRole], (req, res) => {
 
     })
 
+
+
     usuario.save((err, usuarioDB) => {
         if (err) {
             return res.status(400).json({

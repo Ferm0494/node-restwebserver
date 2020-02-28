@@ -15,9 +15,11 @@ app.use(express.static(path.resolve(__dirname, '../public')))
 
 
 
-
+//Middlewares for routes of app
+app.use(require('./categoria'))
 app.use(require('./routes'))
 app.use(require('./login'))
+app.use(require('./producto'))
 
 
 module.exports = app

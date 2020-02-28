@@ -8,7 +8,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev'
 //=============+Config de JWT+===================
 
 process.env.SEED = process.env.SEED || 'mi-secreto'
-process.env.LIFE = 60 * 60 * 24 * 30
+process.env.LIFE = '48h'
 
 
 
@@ -29,7 +29,7 @@ process.env.CLIENT_ID = process.env.CLIENT_ID || '1014301085314-5qh5r272k834388h
 let urlDB
 if (process.env.NODE_ENV === 'dev') {
 
-
+    //Nuestr base de datos se llama cafe 27017 es por defecto   
     urlDB = 'mongodb://localhost:27017/cafe'
 
 } else {

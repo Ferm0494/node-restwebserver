@@ -20,11 +20,11 @@ app.listen(process.env.PORT, () => {
     console.log('Despeglando server en...' + process.env.PORT);
 })
 
-//useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true...standard...
+//useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false...standard...
 //
 
 
-mongoose.connect(process.env.urlDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err, res) => {
+mongoose.connect(process.env.urlDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }, (err, res) => {
     if (err) {
         throw error;
     } else {
