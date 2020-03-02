@@ -128,7 +128,7 @@ app.post('/productos', verifyToken, (req, res) => {
 })
 
 app.put('/productos/:id', verifyToken, async(req, res) => {
-    let id = (req.params.id)
+    let id = req.params.id
     let body = req.body
 
     //Vemos si tenemos categoria....
@@ -140,7 +140,7 @@ app.put('/productos/:id', verifyToken, async(req, res) => {
     if (body.categoria) {
 
         body.categoria = await Categoria.find({ descripcion: body.categoria }, { _id: 1, descripcion: 1 }, (err, categoria) => {
-            console.log('Category' + categoria.toString().length);
+            //console.log('Category' + categoria.toString().length);
             if (err || categoria.toString().length === 0) {
 
 
